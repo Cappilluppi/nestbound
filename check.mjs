@@ -43,6 +43,11 @@ try{
  const checks=[];
  for(const [width,height] of [[1600,900],[1920,1080],[1366,768],[1280,720],[1024,768]]){
   await command('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});await delay(50);
+  await evaluate('switchTab("play")');
+  const overview=await evaluate('(()=>{const o=document.querySelector(".game-overview"),d=document.querySelector(".demo-area"),r=o.getBoundingClientRect();return {noOverflow:o.scrollHeight<=o.clientHeight,separate:r.right<d.getBoundingClientRect().left,fullyVisible:[...o.children].every(n=>{const b=n.getBoundingClientRect();return b.top>=r.top-1&&b.bottom<=r.bottom+1})}})()');
+  assert(overview.noOverflow&&overview.separate&&overview.fullyVisible,'Overview and smaller demo fit side by side: '+JSON.stringify({width,height,overview}));
+  await evaluate('chooseSpecies()');const modal=await evaluate('(()=>{const p=document.querySelector(".panel"),r=p.getBoundingClientRect(),m=$("modal").getBoundingClientRect(),o=document.querySelector(".game-overview").getBoundingClientRect();return p.scrollHeight<=p.clientHeight&&r.top>=m.top-1&&r.bottom<=m.bottom+1&&m.left>o.right})()');assert(modal,'Species panel must fit without covering documentation');
+  await evaluate('hidePanel();switchTab("notes")');
   for(let page=0;page<5;page++){
    await evaluate('noteIndex='+page+';renderNotes()');
    const r=await evaluate('(()=>{const f=$("frame").getBoundingClientRect(),s=$("notes"),p=document.querySelector("#notes .doc-pagination").getBoundingClientRect();return {fits:f.left>=-1&&f.top>=-1&&f.right<=innerWidth+1&&f.bottom<=innerHeight+1,noScroll:document.documentElement.scrollHeight<=innerHeight&&document.documentElement.scrollWidth<=innerWidth,content:s.scrollHeight<=s.clientHeight,footer:p.bottom<=s.getBoundingClientRect().bottom+1}})()');
@@ -60,4 +65,4 @@ try{
  await click('[data-decision="destroy"]');await click('#restart');await click('#panelActions .quiet');assert.equal(await evaluate('game.phase'),'receive');assert.equal(await evaluate('game.mission'),1,'Cancel restart cannot strand a completed mission');
  assert.deepEqual(errors,[],'No browser exceptions');
  console.log('PASS: real-browser pointing, out-of-range guard, hold-to-walk, decision panels, safe naming, scene changes, journal, all 81 species/branch combinations, reward guards, reset, and 25 document fit checks. Screenshots in .tools/.');
-}finally{if(ws?.readyState===1){try{await command('Browser.close')}catch{}ws.close()}browser.kill();server.close();}
+}catch(error){if(ws?.readyState===1){console.log('Browser state:',await evaluate('JSON.stringify({mission:game.mission,phase:game.phase,panel:game.panel,aim:game.aim,camera:game.camera})'));await screenshot('nestbound-failure.png');}throw error;}finally{if(ws?.readyState===1){try{await command('Browser.close')}catch{}ws.close()}browser.kill();server.close();}
