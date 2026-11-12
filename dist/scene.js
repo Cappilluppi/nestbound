@@ -27,7 +27,7 @@ const decisions={
 };
 const game={started:false,species:0,screen:'play',mission:0,phase:'receive',camera:{x:0,z:0},aim:null,panel:null,activeObject:null,results:[],stats:{health:40,strength:10,knowledge:0,empathy:0,fun:0},completed:new Set()};
 const held=new Set();let lastTime=0,lastPointer=null,toastTimer,previousFocus=null;
-function fit(){document.documentElement.style.setProperty('--fit',Math.min(innerWidth/1600,innerHeight/900));}
+function fit(){document.documentElement.style.setProperty('--fit',Math.min(innerWidth/1600,innerHeight/748));}
 addEventListener('resize',fit);fit();
 function svgNode(name,attrs={}){const n=document.createElementNS('http://www.w3.org/2000/svg',name);Object.entries(attrs).forEach(([k,v])=>n.setAttribute(k,v));return n;}
 function distance(id){const o=objects.find(o=>o.id===id);return Math.hypot(o.x-game.camera.x,o.z-game.camera.z);}
@@ -99,8 +99,8 @@ function renderJournal(){
  game.results.forEach((r,i)=>{const row=document.createElement('div');row.className='journal-row';const title=document.createElement('span');title.textContent='0'+(i+1)+' · '+r.title+(r.name?' — '+r.name:'');title.title=r.result+' '+r.lasting;const reward=document.createElement('span');reward.className='reward '+r.stat;reward.textContent='+'+r.value+' '+r.stat;row.append(title,reward);$('journalBody').append(row)});
 }
 
-$('fullscreen').onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen()}catch{toast('Full screen is unavailable here. The 16:9 view still fits your window.')}};
-document.addEventListener('fullscreenchange',()=>{$('fullscreen').textContent=document.fullscreenElement?'⛶ Exit full screen':'⛶ Full screen';fit()});
+
+
 $('restart').onclick=()=>{showPanel('restart','Begin a new journey?','This clears your choices, attribute rewards, and journal.');actionButton('Restart journey',reset);actionButton('Keep exploring',cancelRestart,false);renderHud()};
 function reset(){clearMovement();hidePanel();game.started=false;game.mission=0;game.phase='receive';game.camera={x:0,z:0};game.aim=null;game.activeObject=null;game.results=[];game.completed.clear();game.stats={health:40,strength:10,knowledge:0,empathy:0,fun:0};clearTimeout(toastTimer);$('toast').hidden=true;renderWorld();renderJournal();renderHud();chooseSpecies();}
 renderJournal();renderWorld();chooseSpecies();
