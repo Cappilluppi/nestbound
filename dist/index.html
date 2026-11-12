@@ -1,6 +1,22 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dino's life</title><meta name="description" content="Dino's life — an interactive dinosaur game design: explore, build a community, and let your choices change your life."><link rel="stylesheet" href="scene.css"></head>
 <body><main id="frame">
+<svg class="page-backdrop" viewBox="0 0 1600 900" aria-hidden="true" focusable="false">
+<defs>
+<linearGradient id="pageDawn" x2=".8" y2="1"><stop stop-color="#e3e9cd"/><stop offset=".48" stop-color="#f0eed8"/><stop offset="1" stop-color="#bdcba7"/></linearGradient>
+<radialGradient id="pageSun"><stop stop-color="#fff6cc" stop-opacity=".95"/><stop offset="1" stop-color="#fff6cc" stop-opacity="0"/></radialGradient>
+<pattern id="pageGrain" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="5" cy="10" r=".7" fill="#64845a" opacity=".12"/><circle cx="21" cy="23" r=".6" fill="#64845a" opacity=".1"/></pattern>
+<g id="pageFern" fill="#527b51"><path d="M115 210Q125 110 91 5Q143 82 125 210Z"/><path d="M119 173Q51 183 15 136Q89 131 119 173ZM119 151Q51 153 20 106Q87 103 119 151ZM117 125Q54 123 27 80Q90 80 117 125ZM112 100Q66 95 43 57Q93 58 112 100ZM105 75Q77 65 65 33Q100 40 105 75ZM124 175Q189 174 224 128Q159 127 124 175ZM125 150Q183 144 209 103Q155 104 125 150ZM122 125Q172 115 188 78Q141 84 122 125ZM116 100Q157 87 163 52Q126 62 116 100Z"/></g>
+<g id="pagePrint" fill="#547c51"><ellipse cx="0" cy="5" rx="7" ry="10"/><ellipse cx="-8" cy="-8" rx="3" ry="7" transform="rotate(-22)"/><ellipse cx="0" cy="-13" rx="3" ry="8"/><ellipse cx="8" cy="-8" rx="3" ry="7" transform="rotate(22)"/></g>
+</defs>
+<rect width="1600" height="900" fill="url(#pageDawn)"/><ellipse cx="1180" cy="130" rx="550" ry="330" fill="url(#pageSun)"/>
+<path d="M700 270 970 42Q991 20 1012 47l168 210 135-148q25-22 45 5l240 240V900H700Z" fill="#9fb8a0" opacity=".3"/><path d="m970 42-37 55 51-16 43 22-15-56Z" fill="#e4e8cf" opacity=".6"/>
+<path d="M0 650Q250 480 520 674T1040 620 1600 595V900H0Z" fill="#9bb48c" opacity=".24"/><path d="M0 760Q260 680 550 786T1140 735 1600 765V900H0Z" fill="#7d9b71" opacity=".2"/>
+<path d="M0 855Q180 803 335 845T710 835 1100 850 1600 814V900H0Z" fill="#5c7c59" opacity=".2"/>
+<g opacity=".18"><use href="#pageFern" transform="translate(-110 60) rotate(-25 120 200) scale(1.5)"/><use href="#pageFern" transform="translate(1440 30) rotate(35 120 200) scale(1.3)"/><use href="#pageFern" transform="translate(-60 650) rotate(20 120 200) scale(1.4)"/><use href="#pageFern" transform="translate(1360 670) rotate(-28 120 200) scale(1.4)"/></g>
+<g opacity=".17"><use href="#pagePrint" transform="translate(919 280) rotate(-13)"/><use href="#pagePrint" transform="translate(920 356) rotate(13)"/><use href="#pagePrint" transform="translate(916 440) rotate(-13)"/><use href="#pagePrint" transform="translate(921 520) rotate(14)"/><use href="#pagePrint" transform="translate(915 605) rotate(-15)"/><use href="#pagePrint" transform="translate(921 690) rotate(12)"/><use href="#pagePrint" transform="translate(915 774) rotate(-14)"/></g>
+<rect width="1600" height="900" fill="url(#pageGrain)"/>
+</svg>
 <header><a class="brand" href="#" id="brand">Dino's life<span> / game design · one page</span></a><span class="document-label">EXPLORE · CONNECT · EVOLVE</span><button class="quiet" id="fullscreen">⛶ Full screen</button></header>
 <section id="play" class="screen" aria-label="Interactive prehistoric scene">
 <aside class="game-overview" aria-label="Visual game design overview">
