@@ -20,14 +20,12 @@ Open `dist/index.html` in your browser. No install or build is required.
 
 ## GitHub Pages
 
-**Publication is pending:** GitHub rejected enabling Pages because this repository is private and its current plan does not support Pages for private repositories. The owner must choose to make the repository public or upgrade to a compatible plan before the first deployment. See [GitHub Pages availability](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
-
-The [deployment workflow](.github/workflows/deploy-pages.yml) publishes only `dist/`. Configure **Settings → Pages → Source → GitHub Actions** for this repository.
+GitHub Pages is enabled for this public repository. The [deployment workflow](.github/workflows/deploy-pages.yml) publishes only `dist/`, using **GitHub Actions** as its publishing source.
 
 After the first successful deployment, the browser link is:
 
 **https://cappilluppi.github.io/nestbound/**
 
-After Pages is enabled, run the workflow once from the **Actions** tab. Future pushes that change `dist/` deploy automatically.
+Future pushes that change `dist/` deploy automatically. To redeploy manually, run **Deploy Dino's life to GitHub Pages** from the **Actions** tab.
 
 The browser prototype simulates VR pointing; it does not connect to a headset.
