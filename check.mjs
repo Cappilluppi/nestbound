@@ -42,6 +42,9 @@ try{
  const checks=[];
  assert.equal(await evaluate('document.querySelectorAll("nav,[data-tab],#notes,#journal").length'),0,'Single page has no tabs or alternate document screens');
  assert.equal(await evaluate('document.querySelectorAll(".design-card").length'),6,'All design topics are on the overview');
+ assert.equal(await evaluate('document.querySelectorAll("header,footer").length'),0,'Marked top and bottom bars are removed');
+ assert.equal(await evaluate('$("fullscreen").closest(".demo-area")!==null'),true,'Fullscreen remains inside gameplay');
+ assert.equal(await evaluate('parseFloat(getComputedStyle(document.querySelector(".visual-node b")).fontSize)>=17'),true,'Overview labels are enlarged');
  for(const [width,height] of [[1600,900],[1920,1080],[1366,768],[1280,720],[1024,768]]){
   await command('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});await evaluate('fit();new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
   const r=await evaluate('(()=>{const f=$("frame").getBoundingClientRect(),o=document.querySelector(".game-overview"),d=document.querySelector(".demo-area").getBoundingClientRect();return {fits:f.left>=-1&&f.top>=-1&&f.right<=innerWidth+1&&f.bottom<=innerHeight+1,noScroll:document.documentElement.scrollHeight<=innerHeight&&document.documentElement.scrollWidth<=innerWidth,noOverflow:o.scrollHeight<=o.clientHeight,separate:o.getBoundingClientRect().right<d.left,cards:[...document.querySelectorAll(".design-card")].map(c=>({fits:c.scrollHeight<=c.clientHeight,title:c.querySelector("h2").textContent}))}})()');
