@@ -23,7 +23,7 @@ try{
  await command('Runtime.enable');await command('Page.enable');await command('Emulation.setDeviceMetricsOverride',{width:1600,height:900,deviceScaleFactor:1,mobile:false});await command('Page.navigate',{url});await delay(250);
  assert.equal(await evaluate('game.panel'),'species');
  await click('.species-card:nth-child(3)');assert.equal(await evaluate('game.species'),2);
- await click('#panelActions .primary');assert.equal(await evaluate('game.panel'),'mission');await click('#panelActions .primary');assert.equal(await evaluate('game.phase'),'walk');
+ await click('#panelActions .primary');assert.equal(await evaluate('game.panel'),null,'Mission arrives on the in-world leaf map without a popup');assert.equal(await evaluate('game.phase'),'walk');
  await screenshot('nestbound-scene.png');
  await click('[data-object="tree"] .hit');assert.equal(await evaluate('game.panel'),null,'Out-of-range target must not open a decision');
  await hold('[data-move="forward"]',1100);const walked=await evaluate('game.camera.z');assert(walked>3&&walked<7,'Walking button changes position');
@@ -46,9 +46,11 @@ try{
  assert.equal(await evaluate('document.querySelector(".onepage-heading .eyebrow").textContent.includes("DINO’S LIFE")'),true,'Game title appears in the heading area');
  assert.equal(await evaluate('parseFloat(getComputedStyle(document.querySelector(".visual-node b")).fontSize)'),13,'Original reference typography is preserved');
  assert.equal(await evaluate('document.querySelector(".story-card .visual-node:last-of-type b").textContent'),'Grow together','Original reference wording is preserved');
+ assert.equal(await evaluate('[".mission-card",".walking",".mini-journal",".demo-actions"].every(q=>document.querySelector(q).closest("#world-ui foreignObject"))'),true,'Mission, controls, interaction and journal live inside the scene');
+ assert.equal(await evaluate('$("scene").getBoundingClientRect().height/document.querySelector(".demo-area").getBoundingClientRect().height>.9'),true,'The world fills the gameplay panel');
  for(const [width,height] of [[1600,900],[1920,1080],[1366,768],[1280,720],[1024,768]]){
   await command('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});await evaluate('fit();new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
-  const r=await evaluate('(()=>{const f=$("frame").getBoundingClientRect(),o=document.querySelector(".game-overview"),d=document.querySelector(".demo-area").getBoundingClientRect();return {fits:f.left>=-1&&f.top>=-1&&f.right<=innerWidth+1&&f.bottom<=innerHeight+1,noScroll:document.documentElement.scrollHeight<=innerHeight&&document.documentElement.scrollWidth<=innerWidth,noOverflow:o.scrollHeight<=o.clientHeight,separate:o.getBoundingClientRect().right<d.left,cards:[...document.querySelectorAll(".design-card")].map(c=>({fits:c.scrollHeight<=c.clientHeight,title:c.querySelector("h2").textContent}))}})()');
+  const r=await evaluate('(()=>{const f=$("frame").getBoundingClientRect(),o=document.querySelector(".game-overview"),d=document.querySelector(".demo-area").getBoundingClientRect();return {fits:f.left>=-1&&f.top>=-1&&f.right<=innerWidth+1&&f.bottom<=innerHeight+1,scroll:[document.documentElement.scrollWidth,document.documentElement.scrollHeight,innerWidth,innerHeight],noScroll:document.documentElement.scrollHeight<=innerHeight&&document.documentElement.scrollWidth<=innerWidth,noOverflow:o.scrollHeight<=o.clientHeight,separate:o.getBoundingClientRect().right<d.left,cards:[...document.querySelectorAll(".design-card")].map(c=>({fits:c.scrollHeight<=c.clientHeight,title:c.querySelector("h2").textContent}))}})()');
   checks.push({width,height,...r});assert(r.fits&&r.noScroll&&r.noOverflow&&r.separate&&r.cards.every(c=>c.fits),'One-page document overflow: '+JSON.stringify(checks.at(-1)));
   await evaluate('chooseSpecies()');const modal=await evaluate('(()=>{const p=document.querySelector(".panel"),r=p.getBoundingClientRect(),m=$("modal").getBoundingClientRect(),o=document.querySelector(".game-overview").getBoundingClientRect();return p.scrollHeight<=p.clientHeight&&r.top>=m.top-1&&r.bottom<=m.bottom+1&&m.left>o.right})()');assert(modal,'Species panel must fit without covering documentation');
   await evaluate('hidePanel()');
@@ -56,6 +58,7 @@ try{
  await command('Emulation.setDeviceMetricsOverride',{width:1600,height:900,deviceScaleFactor:1,mobile:false});await screenshot('nestbound-onepager.png');
  // Keyboard interaction, modal movement lock, and touch selection.
  await evaluate('reset();game.started=true;hidePanel();game.phase="walk";game.camera={x:-2,z:4};renderWorld();renderHud();aim("tree");pointAt("tree")');
+ await click('#interact');assert.equal(await evaluate('game.panel'),'decision','Aiming stays locked when clicking the leaf-map interaction button');await evaluate('leavePanel()');
  await command('Input.dispatchKeyEvent',{type:'keyDown',key:'e',code:'KeyE'});await command('Input.dispatchKeyEvent',{type:'keyUp',key:'e',code:'KeyE'});assert.equal(await evaluate('game.panel'),'decision');
  const still=await evaluate('JSON.stringify(game.camera)');await command('Input.dispatchKeyEvent',{type:'keyDown',key:'w',code:'KeyW'});await delay(100);await command('Input.dispatchKeyEvent',{type:'keyUp',key:'w',code:'KeyW'});assert.equal(await evaluate('JSON.stringify(game.camera)'),still);
  await click('[data-decision="name"]');await command('Input.dispatchKeyEvent',{type:'keyDown',key:'Tab',code:'Tab',modifiers:8});assert.equal(await evaluate('document.activeElement.textContent'),'Back');await command('Input.dispatchKeyEvent',{type:'keyUp',key:'Tab',code:'Tab'});
