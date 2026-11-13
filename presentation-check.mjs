@@ -20,9 +20,9 @@ try{
  assert.equal(await evaluate('slides.length'),4);assert.equal(await evaluate('current'),0);
  assert.equal(await evaluate('[...document.images].every(i=>i.complete&&i.naturalWidth>0)'),true,'Local images loaded');
  assert.equal(await evaluate('document.querySelectorAll(".comparison-images figure").length'),3,'Notes, one-pager and playable prototype');
- assert.deepEqual(await evaluate('[...document.querySelectorAll(".comparison-images h3")].map(n=>n.textContent)'),['Planning notes','Interactive one-pager','Playable prototype']);
- assert.equal(await evaluate('document.querySelectorAll(".room-advantages article").length'),3,'Three room-level advantages');
- assert.equal(await evaluate('document.querySelectorAll(".level-references img").length'),2,'Both VR reference level images');
+ assert.deepEqual(await evaluate('[...document.querySelectorAll(".comparison-images h3")].map(n=>n.textContent)'),['Planning notes','Interactive one-pager','Playable forest room']);
+ assert.equal(await evaluate('document.querySelector("#title-2").textContent'),'What changed. What we gain.');
+ assert.equal(await evaluate('document.querySelectorAll("[data-map-art] use").length'),10,'Restored forest map');
  assert.equal(await evaluate('document.querySelector("#slide-4 .test-grid article:nth-child(1) h3").textContent'),'Manage dinosaur needs');
  assert.equal(await evaluate('document.querySelector("#slide-4 .test-grid article:nth-child(2) h3").textContent'),'Evolve species & family');
  for(let i=0;i<4;i++){
@@ -48,5 +48,5 @@ try{
  // Verify the separate playable page still loads and starts.
  await command('Page.navigate',{url:url.replace('presentation/','')});await delay(400);assert.equal(await evaluate('elements.length'),10);await click('#startGame');assert.equal(await evaluate('game.started'),true);
  assert.deepEqual(errors,[]);assert.deepEqual(failed.filter(u=>!u.endsWith('/favicon.ico')),[]);
- console.log('PASS: four slides; notes/one-pager/prototype progression; three room advantages and two reference level images; needs/generations test cards; text fits; buttons, keyboard, deep links, touch swipe and fullscreen API/fallback; five responsive sizes without scrolling; original game starts; no browser errors.');
+ console.log('PASS: four slides; narrow notes step plus original comparison wording; restored ten-element forest map; needs/generations cards preserved; text fits; buttons, keyboard, deep links, touch swipe and fullscreen API/fallback; five responsive sizes without scrolling; original game starts; no browser errors.');
 }finally{if(ws?.readyState===1){await command('Browser.close');ws.close()}browser.kill();server.close()}
