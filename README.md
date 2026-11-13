@@ -6,7 +6,7 @@ A standalone, browser-playable 2D forest prototype. Choose a dinosaur species, e
 
 **4-slide presentation:** https://cappilluppi.github.io/nestbound/presentation/
 
-The presentation is a separate 16:9 HTML deck. Use arrow keys, on-screen arrows, or swipe to navigate; F toggles fullscreen when supported. It compares commits `ba9f082` (visual one-pager) and `c16dd7f` (forest prototype), explains the contained-level approach, and proposes needs and family-generation tests. Quest is the intended platform rather than a feature of the browser build.
+The presentation is a separate 16:9 HTML deck. Use arrow keys, on-screen arrows, or swipe to navigate; F toggles fullscreen when supported. Slide 2 progresses from an illustration of the original planning notes to commits `ba9f082` (visual one-pager) and `c16dd7f` (forest prototype), retaining the changes and advantages comparison. The deck also explains the contained-level approach and proposes needs and family-generation tests. Quest is the intended platform rather than a feature of the browser build.
 
 Reference screenshots on slide 3 are credited and linked to their official game pages: [The Room VR: A Dark Matter](https://www.fireproofgames.com/games/the-room-vr-a-dark-matter), Fireproof Games ([image](https://www.fireproofgames.com/wp-content/uploads/2015/02/RoomVR-ADM_Screenshot_01_2560x1440.png)); and [I Expect You To Die — Winter Break](https://iexpectyoutodie.schellgames.com/original), Schell Games ([image](https://schellgames.nyc3.cdn.digitaloceanspaces.com/images/Microsites/ieytd/IEYTD_L04_SS01.jpg)). These are visual design references, not artwork for Dino's life.
 

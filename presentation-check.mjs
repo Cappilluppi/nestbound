@@ -19,7 +19,8 @@ try{
  await command('Page.enable');await command('Runtime.enable');await command('Network.enable');await command('Emulation.setDeviceMetricsOverride',{width:1600,height:900,deviceScaleFactor:1,mobile:false});await command('Page.navigate',{url});await delay(500);
  assert.equal(await evaluate('slides.length'),4);assert.equal(await evaluate('current'),0);
  assert.equal(await evaluate('[...document.images].every(i=>i.complete&&i.naturalWidth>0)'),true,'Local images loaded');
- assert.equal(await evaluate('document.querySelectorAll(".comparison-images figure").length'),2,'Only first and latest prototypes');
+ assert.equal(await evaluate('document.querySelectorAll(".comparison-images figure").length'),3,'Notes, one-pager and playable prototype');
+ assert.deepEqual(await evaluate('[...document.querySelectorAll(".comparison-images h3")].map(n=>n.textContent)'),['Planning notes','Interactive one-pager','Playable prototype']);
  assert.equal(await evaluate('document.querySelectorAll(".room-advantages article").length'),3,'Three room-level advantages');
  assert.equal(await evaluate('document.querySelectorAll(".level-references img").length'),2,'Both VR reference level images');
  assert.equal(await evaluate('document.querySelector("#slide-4 .test-grid article:nth-child(1) h3").textContent'),'Manage dinosaur needs');
@@ -47,5 +48,5 @@ try{
  // Verify the separate playable page still loads and starts.
  await command('Page.navigate',{url:url.replace('presentation/','')});await delay(400);assert.equal(await evaluate('elements.length'),10);await click('#startGame');assert.equal(await evaluate('game.started'),true);
  assert.deepEqual(errors,[]);assert.deepEqual(failed.filter(u=>!u.endsWith('/favicon.ico')),[]);
- console.log('PASS: four slides; first/latest comparison; three room advantages and two reference level images; needs/generations test cards; text fits; buttons, keyboard, deep links, touch swipe and fullscreen API/fallback; five responsive sizes without scrolling; original game starts; no browser errors.');
+ console.log('PASS: four slides; notes/one-pager/prototype progression; three room advantages and two reference level images; needs/generations test cards; text fits; buttons, keyboard, deep links, touch swipe and fullscreen API/fallback; five responsive sizes without scrolling; original game starts; no browser errors.');
 }finally{if(ws?.readyState===1){await command('Browser.close');ws.close()}browser.kill();server.close()}

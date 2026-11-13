@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-labelledby="title desc">
+<title id="title">Dino’s life planning notes</title><desc id="desc">Illustration of the original game ideas: a young dinosaur, community, family, and three activity systems: eat, build, and find.</desc>
+<defs><pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#d9e0d4" stroke-width="1"/></pattern><filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#40583e" flood-opacity=".14"/></filter></defs>
+<rect width="800" height="450" fill="#e2e8d6"/><g transform="translate(37 19) rotate(-1 360 200)"><rect width="725" height="415" rx="10" fill="#faf8eb"/><rect width="725" height="415" rx="10" fill="url(#grid)"/><path d="M43 0v415" stroke="#d9a39b" stroke-width="2"/>
+<g fill="#71836a"><circle cx="20" cy="35" r="6"/><circle cx="20" cy="105" r="6"/><circle cx="20" cy="175" r="6"/><circle cx="20" cy="245" r="6"/><circle cx="20" cy="315" r="6"/><circle cx="20" cy="385" r="6"/></g>
+<text x="76" y="64" font-family="Georgia,serif" font-size="34" fill="#31543d">Dino’s life — initial ideas</text><path d="m76 78 403 2" stroke="#8eac72" stroke-width="4" stroke-linecap="round"/>
+<g font-family="Trebuchet MS,Arial,sans-serif" fill="#40543c" text-anchor="middle" filter="url(#shadow)">
+<g transform="translate(78 110) rotate(-4 85 60)"><path d="M0 0h176v125H0Z" fill="#f7e4a0"/><text x="88" y="44" font-size="31" font-weight="bold">Eat</text><text x="88" y="78" font-size="21">Gather · hunt</text><text x="88" y="105" font-size="21">Survive</text></g>
+<g transform="translate(280 105) rotate(3 85 60)"><path d="M0 0h176v125H0Z" fill="#cee0e9"/><text x="88" y="44" font-size="31" font-weight="bold">Build</text><text x="88" y="78" font-size="21">Nests · shelters</text><text x="88" y="105" font-size="21">Protect eggs</text></g>
+<g transform="translate(483 110) rotate(-2 85 60)"><path d="M0 0h176v125H0Z" fill="#d2e4ad"/><text x="88" y="44" font-size="31" font-weight="bold">Find</text><text x="88" y="78" font-size="21">Friends · homes</text><text x="88" y="105" font-size="21">Belong</text></g></g>
+<path d="M166 250v22h403v-22M369 274v25" fill="none" stroke="#869d6d" stroke-width="3" stroke-linecap="round"/><path d="m362 291 7 9 7-9" fill="none" stroke="#869d6d" stroke-width="3"/>
+<text x="369" y="334" text-anchor="middle" font-family="Georgia,serif" font-size="30" fill="#31543d">Community · Family · Evolution</text>
+<text x="369" y="379" text-anchor="middle" font-family="Trebuchet MS,Arial,sans-serif" font-size="19" fill="#7b8b6d">Young dinosaur → choices → a life together</text></g></svg>
