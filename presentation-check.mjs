@@ -19,11 +19,15 @@ try{
  await command('Page.enable');await command('Runtime.enable');await command('Network.enable');await command('Emulation.setDeviceMetricsOverride',{width:1600,height:900,deviceScaleFactor:1,mobile:false});await command('Page.navigate',{url});await delay(500);
  assert.equal(await evaluate('slides.length'),4);assert.equal(await evaluate('current'),0);
  assert.equal(await evaluate('[...document.images].every(i=>i.complete&&i.naturalWidth>0)'),true,'Local images loaded');
- assert.equal(await evaluate('document.querySelectorAll("[data-map-art] use").length'),10,'All ten map illustrations');
+ assert.equal(await evaluate('document.querySelectorAll(".comparison-images figure").length'),2,'Only first and latest prototypes');
+ assert.equal(await evaluate('document.querySelectorAll(".room-advantages article").length'),3,'Three room-level advantages');
+ assert.equal(await evaluate('document.querySelectorAll(".level-references img").length'),2,'Both VR reference level images');
+ assert.equal(await evaluate('document.querySelector("#slide-4 .test-grid article:nth-child(1) h3").textContent'),'Manage dinosaur needs');
+ assert.equal(await evaluate('document.querySelector("#slide-4 .test-grid article:nth-child(2) h3").textContent'),'Evolve species & family');
  for(let i=0;i<4;i++){
   await evaluate('show('+i+')');await delay(300);assert.equal(await evaluate('document.querySelectorAll(".slide:not([hidden])").length'),1);
-  const overflow=await evaluate(()=>{const slide=slides[current],d=document.getElementById('deck').getBoundingClientRect(),bad=[];const walker=document.createTreeWalker(slide,NodeFilter.SHOW_TEXT);let n;while(n=walker.nextNode()){if(!n.textContent.trim()||n.parentElement.closest('svg'))continue;const range=document.createRange();range.selectNodeContents(n);for(const r of range.getClientRects())if(r.left<d.left-1||r.right>d.right+1||r.top<d.top-1||r.bottom>d.bottom-78+1)bad.push(n.textContent.trim());}return bad;});assert.deepEqual(overflow,[],'Text within slide '+(i+1));
   await screenshot('dinos-slide-'+(i+1)+'.png');
+  const overflow=await evaluate(()=>{const slide=slides[current],d=document.getElementById('deck').getBoundingClientRect(),bad=[];const walker=document.createTreeWalker(slide,NodeFilter.SHOW_TEXT);let n;while(n=walker.nextNode()){if(!n.textContent.trim()||n.parentElement.closest('svg'))continue;const range=document.createRange();range.selectNodeContents(n);for(const r of range.getClientRects())if(r.left<d.left-1||r.right>d.right+1||r.top<d.top-1||r.bottom>d.bottom-78+1)bad.push(n.textContent.trim());}return bad;});assert.deepEqual(overflow,[],'Text within slide '+(i+1));
  }
  await click('#previous');assert.equal(await evaluate('current'),2);await click('[data-slide="0"]');assert.equal(await evaluate('current'),0);assert.equal(await evaluate('previous.disabled'),true);
  await key('ArrowRight');assert.equal(await evaluate('current'),1);await evaluate('document.activeElement.blur()');await key(' ');assert.equal(await evaluate('current'),2);await key('Home');assert.equal(await evaluate('current'),0);await key('End');assert.equal(await evaluate('current'),3);assert.equal(await evaluate('next.disabled'),true);
@@ -43,5 +47,5 @@ try{
  // Verify the separate playable page still loads and starts.
  await command('Page.navigate',{url:url.replace('presentation/','')});await delay(400);assert.equal(await evaluate('elements.length'),10);await click('#startGame');assert.equal(await evaluate('game.started'),true);
  assert.deepEqual(errors,[]);assert.deepEqual(failed.filter(u=>!u.endsWith('/favicon.ico')),[]);
- console.log('PASS: four slides; local screenshots and ten map elements; text fits; buttons, keyboard, deep links, touch swipe and fullscreen; five responsive sizes without scrolling; original game starts; no browser errors.');
+ console.log('PASS: four slides; first/latest comparison; three room advantages and two reference level images; needs/generations test cards; text fits; buttons, keyboard, deep links, touch swipe and fullscreen API/fallback; five responsive sizes without scrolling; original game starts; no browser errors.');
 }finally{if(ws?.readyState===1){await command('Browser.close');ws.close()}browser.kill();server.close()}

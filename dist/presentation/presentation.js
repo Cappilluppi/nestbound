@@ -29,10 +29,3 @@ addEventListener('keydown',event=>{
 document.getElementById('deck').addEventListener('pointerdown',event=>{if(event.pointerType!=='mouse'&&!event.target.closest('a,button'))start={x:event.clientX,y:event.clientY,id:event.pointerId};});
 addEventListener('pointerup',event=>{if(!start||event.pointerId!==start.id)return;const dx=event.clientX-start.x,dy=event.clientY-start.y;start=null;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.5)show(current+(dx<0?1:-1));});
 addEventListener('pointercancel',()=>start=null);addEventListener('resize',fit);addEventListener('hashchange',fromHash);fit();fromHash();
-// Reuse the game's original vector artwork, without loading or changing game state.
-fetch('assets/forest-art.svg').then(r=>{if(!r.ok)throw Error('Missing artwork');return r.text();}).then(text=>{
- const source=new DOMParser().parseFromString(text,'image/svg+xml').querySelector('defs');
- if(!source)throw Error('Invalid artwork');document.querySelector('.symbol-library').append(document.importNode(source,true));
- const scale={treeDrawing:.23,springDrawing:.28,logDrawing:.27,stonesDrawing:.31,fernPatchDrawing:.28,companionDrawing:.32,nestDrawing:.3,fungiDrawing:.32,rootsDrawing:.29,saplingDrawing:.31};
- document.querySelectorAll('[data-map-art]').forEach(group=>{const use=document.createElementNS('http://www.w3.org/2000/svg','use');use.setAttribute('href','#'+group.dataset.mapArt);use.setAttribute('transform','scale('+scale[group.dataset.mapArt]+')');group.append(use);});
-}).catch(()=>{document.querySelectorAll('[data-map-art]').forEach(group=>{const circle=document.createElementNS('http://www.w3.org/2000/svg','circle');circle.setAttribute('r','14');circle.setAttribute('fill','#77965b');group.append(circle);});});
