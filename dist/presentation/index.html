@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#244e3c"><title>Dino’s life — Game presentation</title><meta name="description" content="Four visual slides introducing Dino’s life, its prototype evolution, connected forest level, and next VR tests."><link rel="stylesheet" href="presentation.css"><script src="presentation.js" defer></script></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#244e3c"><title>Dino’s life — Game presentation</title><meta name="description" content="Five visual slides introducing Dino’s life, its prototype evolution, connected forest level, and next VR tests."><link rel="stylesheet" href="presentation.css?v=5"><script src="presentation.js?v=5" defer></script></head>
 <body>
 <svg class="symbol-library" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs id="icons">
 <symbol id="explore" viewBox="0 0 64 64"><circle cx="32" cy="32" r="24"/><path d="m42 20-6 16-16 8 8-18Z"/></symbol>
@@ -19,14 +19,14 @@
 <main id="deck" aria-label="Dino’s life presentation" aria-roledescription="carousel">
 <div class="scenery" aria-hidden="true"><i></i><i></i><i></i></div>
 
-<section class="slide cover" id="slide-1" aria-labelledby="title-1" aria-roledescription="slide" aria-label="1 of 4">
+<section class="slide cover" id="slide-1" aria-labelledby="title-1" aria-roledescription="slide" aria-label="1 of 5">
  <div class="cover-copy"><p class="eyebrow">A cooperative prehistoric adventure</p><h1 id="title-1">Dino’s <em>life</em><span class="title-dot">.</span></h1><h2>A small dinosaur.<br>A life built together.</h2>
  <div class="activities"><div><svg><use href="#explore"/></svg><strong>Explore</strong></div><div><svg><use href="#friends"/></svg><strong>Make friends</strong></div><div><svg><use href="#family"/></svg><strong>Care for family</strong></div></div>
  <div class="profile"><p class="eyebrow">Who we’re making it for</p><p><strong>All genders</strong><span>·</span><strong>Ages 30–40</strong><span>·</span><strong>Family interests</strong></p><dl><div><dt>Genre</dt><dd>Adventure – Dinosaurs</dd></div><div><dt>Target platform</dt><dd>VR – Oculus Quest</dd></div></dl></div></div>
  <div class="hero-visual"><div class="image-frame"><img src="assets/current.png" alt="Current forest prototype with dinosaur paws, a pointing ray, a fruit tree, and a young dinosaur."><span class="image-tag">Current browser prototype</span></div><img class="hero-dino" src="assets/forest-art.svg" alt="Cartoon young dinosaur"><div class="vision-note"><span class="small-dot"></span>Browser today. Quest is the destination.</div></div>
 </section>
 
-<section class="slide evolution" id="slide-2" hidden inert aria-labelledby="title-2" aria-roledescription="slide" aria-label="2 of 4">
+<section class="slide evolution" id="slide-2" hidden inert aria-labelledby="title-2" aria-roledescription="slide" aria-label="2 of 5">
  <p class="eyebrow">First prototype → Latest prototype</p><h2 id="title-2">What changed. <em>What we gain.</em></h2>
  <div class="comparison-images">
   <figure class="planning-step"><div class="planning-note" role="img" aria-label="Planning notes: Eat, Build, Find, community and family."><span class="notes-heading">Initial ideas</span><div>Eat<small>Gather · hunt</small></div><div>Build<small>Nests · shelters</small></div><div>Find<small>Friends · homes</small></div><span class="notes-footer">Community + family</span></div><figcaption><h3>Planning notes</h3></figcaption></figure>
@@ -44,36 +44,21 @@
  <p class="slide-note">Paws and pointer stay. Headset comfort is the next validation step.</p>
 </section>
 
-<section class="slide structure" id="slide-3" hidden inert aria-labelledby="title-3" aria-roledescription="slide" aria-label="3 of 4">
- <p class="eyebrow">Level design / connected forest room</p><h2 id="title-3">A small world. <em>Many ways through.</em></h2>
- <div class="structure-grid"><div class="map-column">
-  <svg class="forest-map" viewBox="0 0 900 485" role="img" aria-label="Schematic of four forest areas with ten interactive elements. Three alternative creek crossings and two ways into the root hollow.">
-   <path d="M50 30Q0 80 30 198L22 394Q30 468 120 462L785 465Q883 456 875 371L866 83Q853 14 758 22Z" fill="#e0e8cb" stroke="#c4d1ae" stroke-width="2"/>
-   <path d="M52 37h273l-3 157H41ZM554 32h258l25 161H543Z" fill="#c5d8b6"/>
-   <path d="M56 299q235-34 401 13l49 126H54Z" fill="#d3dfa9"/>
-   <path d="M28 221Q235 165 425 220T872 230L872 281Q668 313 437 272T28 273Z" fill="#a0d0d0"/>
-   <path d="M30 239Q239 189 434 242T871 252" stroke="#d4eeee" stroke-width="4" fill="none"/>
-   <path d="M230 355 204 262 160 199M415 355 429 268 512 179M700 363 712 281 723 191" fill="none" stroke="#faf7df" stroke-width="14" stroke-dasharray="10 9" stroke-linecap="round"/>
-   <path d="M326 111h161m-140 6-22 56" fill="none" stroke="#faf7df" stroke-width="9" stroke-dasharray="8 8"/>
-   <text x="73" y="65" class="area-label">ROOT HOLLOW</text><text x="575" y="65" class="area-label">NESTING GROVE</text><text x="72" y="329" class="area-label">STARTING GLADE</text><text x="565" y="330" class="area-label">CREEK BANK</text>
-   <g data-map-art="rootsDrawing" transform="translate(105 164)"></g><text x="105" y="192" class="object-label">Root arch</text>
-   <g data-map-art="saplingDrawing" transform="translate(242 161)"></g><text x="242" y="192" class="object-label">Sapling</text>
-   <g data-map-art="nestDrawing" transform="translate(622 139)"></g><text x="622" y="175" class="object-label">Nest</text>
-   <g data-map-art="fungiDrawing" transform="translate(770 145)"></g><text x="770" y="175" class="object-label">Mushrooms</text>
-   <g data-map-art="treeDrawing" transform="translate(125 427)"></g><text x="125" y="453" class="object-label">Fruit tree</text>
-   <g data-map-art="fernPatchDrawing" transform="translate(280 423)"></g><text x="280" y="453" class="object-label">Ferns</text>
-   <g data-map-art="companionDrawing" transform="translate(421 421)"></g><text x="421" y="453" class="object-label">Young dino</text>
-   <g data-map-art="logDrawing" transform="translate(175 243)"></g><g data-map-art="springDrawing" transform="translate(440 246)"></g><g data-map-art="stonesDrawing" transform="translate(706 252)"></g>
-   <text x="171" y="286" class="object-label">Log bridge</text><text x="439" y="294" class="object-label">Spring ford</text><text x="708" y="298" class="object-label">Stone crossing</text>
-   <text x="414" y="94" class="route-label">Hidden passage</text><text x="408" y="159" class="route-label">Branch / companion</text>
-   <text x="694" y="406" class="map-key">10 elements · 3 decisions each</text>
-  </svg>
-  <div class="dependency"><span>One connected puzzle</span><div><svg><use href="#leaf"/></svg><b>Fern</b><i>→</i><svg><use href="#cup"/></svg><b>Cup</b><i>→</i><svg><use href="#water"/></svg><b>Water</b><i>→</i><svg><use href="#leaf"/></svg><b>Sapling</b></div></div>
- </div><aside class="references"><p class="eyebrow">VR design references</p><a href="https://www.fireproofgames.com/games/the-room-vr-a-dark-matter" target="_blank" rel="noopener noreferrer"><span class="reference-number">01</span><h3>The Room VR <span>↗</span></h3><p>Examine objects.<br>Solve environmental puzzles.</p></a><a href="https://iexpectyoutodie.schellgames.com/" target="_blank" rel="noopener noreferrer"><span class="reference-number">02</span><h3>I Expect You To Die <span>↗</span></h3><p>Focused missions.<br>Interactive surroundings.</p></a><p class="reference-note">Borrow their focused spaces—<br>not their tone.</p></aside></div>
- <div class="room-reasons"><strong>Why a room over an open world?</strong><span>Clear landmarks</span><span>Shorter journeys</span><span>Manageable scope</span></div>
+<section class="slide structure" id="slide-3" hidden inert aria-labelledby="title-3" aria-roledescription="slide" aria-label="3 of 5">
+ <p class="eyebrow">Level design / contained forest room</p><h2 id="title-3">Why a room over <em>an open world?</em></h2>
+ <div class="room-advantages">
+  <article><svg><use href="#explore"/></svg><h3>Clear landmarks</h3><p>Recognize places.<br>Find your way back.</p></article>
+  <article><svg><use href="#walk"/></svg><h3>Shorter journeys</h3><p>Reach the next discovery<br>with less travel.</p></article>
+  <article><svg><use href="#puzzle"/></svg><h3>Manageable scope</h3><p>Build, tune, and test<br>one rich area first.</p></article>
+ </div>
+ <div class="level-references">
+  <a href="https://www.fireproofgames.com/games/the-room-vr-a-dark-matter" target="_blank" rel="noopener noreferrer"><figure><img src="assets/room-vr-level.png" alt="The Room VR police station environment with a clue board, bookcase, and investigation projector."><figcaption><div><h3>The Room VR <span>↗</span></h3><p>A contained room full of clues</p></div><span class="image-credit">Fireproof Games</span></figcaption></figure></a>
+  <a href="https://iexpectyoutodie.schellgames.com/original" target="_blank" rel="noopener noreferrer"><figure><img src="assets/ieytd-level.jpg" alt="I Expect You To Die Winter Break level: a contained lodge room with a fireplace, chairs, and interactive props."><figcaption><div><h3>I Expect You To Die <span>↗</span></h3><p>Winter Break · one focused mission space</p></div><span class="image-credit">Schell Games</span></figcaption></figure></a>
+ </div>
+ <div class="forest-flow"><strong>Our forest room</strong><span>Glade</span><i>→</i><span>Creek</span><i>→</i><span>Nesting grove</span><i>→</i><span>Root hollow</span><small>Connected areas, multiple routes</small></div>
 </section>
 
-<section class="slide tests" id="slide-4" hidden inert aria-labelledby="title-4" aria-roledescription="slide" aria-label="4 of 4">
+<section class="slide tests" id="slide-4" hidden inert aria-labelledby="title-4" aria-roledescription="slide" aria-label="4 of 5">
  <p class="eyebrow">The next playable milestone</p><h2 id="title-4">Make it feel right. <em>Then grow.</em></h2>
  <div class="test-grid">
   <article><span class="test-number">01 / DAILY LIFE</span><svg><use href="#water"/></svg><h3>Manage dinosaur needs</h3><p>Balance food, water, rest, and health<br>without overwhelming the player.</p><span class="test-tag">Next test: a short daily-care loop</span></article>
@@ -84,6 +69,15 @@
  <div class="next-step"><svg><use href="#friends"/></svg><p>Validate the solo experience<br><strong>before adding cooperative play.</strong></p><a href="../" target="_blank" rel="noopener">Play the browser prototype <span>↗</span></a></div>
 </section>
 
-<footer class="deck-controls"><span class="deck-brand">Dino’s life <span>/ Project presentation</span></span><nav aria-label="Presentation controls"><button id="previous" aria-label="Previous slide">←</button><div id="slideDots" aria-label="Choose a slide"><button data-slide="0" aria-label="Slide 1: Overview" aria-current="step"></button><button data-slide="1" aria-label="Slide 2: Improvements"></button><button data-slide="2" aria-label="Slide 3: Level structure"></button><button data-slide="3" aria-label="Slide 4: Next tests"></button></div><output id="counter" aria-live="polite">01 / 04</output><button id="next" aria-label="Next slide">→</button><button id="fullscreen" aria-label="Enter fullscreen" title="Fullscreen (F)">⛶</button></nav></footer>
+<section class="slide takeaways" id="slide-5" hidden inert aria-labelledby="title-5" aria-roledescription="slide" aria-label="5 of 5">
+ <p class="eyebrow">Lessons from building with AI</p><h2 id="title-5">Takeaways</h2>
+ <ol class="takeaway-list">
+  <li><span class="takeaway-number">01</span><svg aria-hidden="true"><use href="#explore"/></svg><p><strong>Plan your questions</strong> before asking AI.</p></li>
+  <li><span class="takeaway-number">02</span><svg aria-hidden="true"><use href="#point"/></svg><p><strong>Providing references to AI</strong> was a very positive point.</p></li>
+  <li><span class="takeaway-number">03</span><svg aria-hidden="true"><use href="#puzzle"/></svg><p><strong>Test many small versions</strong> of a mechanic with AI.</p></li>
+ </ol>
+</section>
+
+<footer class="deck-controls"><span class="deck-brand">Dino’s life <span>/ Project presentation</span></span><nav aria-label="Presentation controls"><button id="previous" aria-label="Previous slide">←</button><div id="slideDots" aria-label="Choose a slide"><button data-slide="0" aria-label="Slide 1: Overview" aria-current="step"></button><button data-slide="1" aria-label="Slide 2: Improvements"></button><button data-slide="2" aria-label="Slide 3: Level structure"></button><button data-slide="3" aria-label="Slide 4: Next tests"></button><button data-slide="4" aria-label="Slide 5: Takeaways"></button></div><output id="counter" aria-live="polite">01 / 05</output><button id="next" aria-label="Next slide">→</button><button id="fullscreen" aria-label="Enter fullscreen" title="Fullscreen (F)">⛶</button></nav></footer>
 </main>
 </body></html>
