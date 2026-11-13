@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#244e3c"><title>Dino’s life — Game presentation</title><meta name="description" content="Four visual slides introducing Dino’s life, its prototype evolution, connected forest level, and next VR tests."><link rel="stylesheet" href="presentation.css"><script src="presentation.js" defer></script></head>
+<body>
+<svg class="symbol-library" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs id="icons">
+<symbol id="explore" viewBox="0 0 64 64"><circle cx="32" cy="32" r="24"/><path d="m42 20-6 16-16 8 8-18Z"/></symbol>
+<symbol id="friends" viewBox="0 0 64 64"><circle cx="23" cy="21" r="9"/><circle cx="47" cy="24" r="7"/><path d="M6 55V44q0-12 17-12t17 12v11m3-20q15 0 15 12v8"/></symbol>
+<symbol id="family" viewBox="0 0 64 64"><path d="M11 34q-2 24 21 24t21-24M7 40l50 10M9 49l46-8"/><ellipse cx="24" cy="26" rx="9" ry="15"/><ellipse cx="43" cy="29" rx="8" ry="13"/></symbol>
+<symbol id="walk" viewBox="0 0 64 64"><path d="m15 53 5-15 12 4 14 1q12 3 12 12H10ZM26 8v22m-7-7 7 7 7-7M49 6v23m-7-7 7 7 7-7"/></symbol>
+<symbol id="point" viewBox="0 0 64 64"><path d="m15 7 37 24-19 3-9 18Zm18 27 15 21"/><circle cx="51" cy="12" r="5"/></symbol>
+<symbol id="headset" viewBox="0 0 64 64"><path d="M11 25V15q21-18 42 0v10M6 23h52v27H40l-8-9-8 9H6Z"/><path d="M18 34h5m18 0h5"/></symbol>
+<symbol id="puzzle" viewBox="0 0 64 64"><path d="M9 9h17q-5 16 6 16T38 9h17v18q-15-5-15 5t15 5v18H37q5-16-5-16t-6 16H9V38q16 5 16-6T9 26Z"/></symbol>
+<symbol id="performance" viewBox="0 0 64 64"><path d="M8 52V12m0 40h49M16 39l12-13 10 7 18-22"/><path d="M44 11h12v12"/></symbol>
+<symbol id="cup" viewBox="0 0 64 64"><path d="M11 19h35l-4 35H16Zm35 6h7q12 13-9 15M17 12q5-8 11-3t12-3"/></symbol>
+<symbol id="water" viewBox="0 0 64 64"><path d="M32 5Q7 35 15 48q17 21 34 0Q57 35 32 5ZM23 40q-2 9 8 11"/></symbol>
+<symbol id="leaf" viewBox="0 0 64 64"><path d="M11 54Q0 7 53 8q10 47-36 44ZM9 57 45 19m-25 9 1 16 17-1"/></symbol>
+<symbol id="arrow" viewBox="0 0 64 64"><path d="M9 32h46M38 15l17 17-17 17"/></symbol>
+</defs></svg>
+<main id="deck" aria-label="Dino’s life presentation" aria-roledescription="carousel">
+<div class="scenery" aria-hidden="true"><i></i><i></i><i></i></div>
+
+<section class="slide cover" id="slide-1" aria-labelledby="title-1" aria-roledescription="slide" aria-label="1 of 4">
+ <div class="cover-copy"><p class="eyebrow">A cooperative prehistoric adventure</p><h1 id="title-1">Dino’s <em>life</em><span class="title-dot">.</span></h1><h2>A small dinosaur.<br>A life built together.</h2>
+ <div class="activities"><div><svg><use href="#explore"/></svg><strong>Explore</strong></div><div><svg><use href="#friends"/></svg><strong>Make friends</strong></div><div><svg><use href="#family"/></svg><strong>Care for family</strong></div></div>
+ <div class="profile"><p class="eyebrow">Who we’re making it for</p><p><strong>All genders</strong><span>·</span><strong>Ages 30–40</strong><span>·</span><strong>Family interests</strong></p><dl><div><dt>Genre</dt><dd>Adventure – Dinosaurs</dd></div><div><dt>Target platform</dt><dd>VR – Oculus Quest</dd></div></dl></div></div>
+ <div class="hero-visual"><div class="image-frame"><img src="assets/current.png" alt="Current forest prototype with dinosaur paws, a pointing ray, a fruit tree, and a young dinosaur."><span class="image-tag">Current browser prototype</span></div><img class="hero-dino" src="assets/forest-art.svg" alt="Cartoon young dinosaur"><div class="vision-note"><span class="small-dot"></span>Browser today. Quest is the destination.</div></div>
+</section>
+
+<section class="slide evolution" id="slide-2" hidden inert aria-labelledby="title-2" aria-roledescription="slide" aria-label="2 of 4">
+ <p class="eyebrow">The prototype’s evolution</p><h2 id="title-2">From an idea to a <em>place.</em></h2>
+ <div class="timeline">
+  <figure><div class="shot"><img src="assets/onepager.png" alt="Earlier one-page design document with six visual design cards beside a small playable scene."><span>01</span></div><figcaption><p class="eyebrow">Interactive one-pager</p><h3>Explain the idea</h3><p>Design overview</p></figcaption></figure>
+  <div class="timeline-arrow" aria-hidden="true">→</div>
+  <figure><div class="shot"><img src="assets/early.png" alt="Early gameplay build showing its tree decision panel and simple clearing."><span>02</span></div><figcaption><p class="eyebrow">Early gameplay</p><h3>Point and choose</h3><p>Small interaction scene</p></figcaption></figure>
+  <div class="timeline-arrow" aria-hidden="true">→</div>
+  <figure><div class="shot"><img src="assets/current.png" alt="Current prototype showing a navigable forest, ten interactive elements, and dinosaur paws."><span>03</span></div><figcaption><p class="eyebrow">Forest prototype</p><h3>Walk, turn, discover</h3><p>10 elements · 30 decisions</p></figcaption></figure>
+ </div>
+ <div class="benefits"><article><svg><use href="#walk"/></svg><div><h3>Navigation</h3><p>Explore connected spaces.</p></div></article><article><svg><use href="#point"/></svg><div><h3>Interaction</h3><p>Paws, pointer, compact UI.</p></div></article><article><svg><use href="#headset"/></svg><div><h3>VR preparation</h3><p>Test movement, reach, readability.</p></div></article></div>
+ <p class="slide-note">A foundation for VR testing. Headset comfort still needs validation.</p>
+</section>
+
+<section class="slide structure" id="slide-3" hidden inert aria-labelledby="title-3" aria-roledescription="slide" aria-label="3 of 4">
+ <p class="eyebrow">Level design / connected forest room</p><h2 id="title-3">A small world. <em>Many ways through.</em></h2>
+ <div class="structure-grid"><div class="map-column">
+  <svg class="forest-map" viewBox="0 0 900 485" role="img" aria-label="Schematic of four forest areas with ten interactive elements. Three alternative creek crossings and two ways into the root hollow.">
+   <path d="M50 30Q0 80 30 198L22 394Q30 468 120 462L785 465Q883 456 875 371L866 83Q853 14 758 22Z" fill="#e0e8cb" stroke="#c4d1ae" stroke-width="2"/>
+   <path d="M52 37h273l-3 157H41ZM554 32h258l25 161H543Z" fill="#c5d8b6"/>
+   <path d="M56 299q235-34 401 13l49 126H54Z" fill="#d3dfa9"/>
+   <path d="M28 221Q235 165 425 220T872 230L872 281Q668 313 437 272T28 273Z" fill="#a0d0d0"/>
+   <path d="M30 239Q239 189 434 242T871 252" stroke="#d4eeee" stroke-width="4" fill="none"/>
+   <path d="M230 355 204 262 160 199M415 355 429 268 512 179M700 363 712 281 723 191" fill="none" stroke="#faf7df" stroke-width="14" stroke-dasharray="10 9" stroke-linecap="round"/>
+   <path d="M326 111h161m-140 6-22 56" fill="none" stroke="#faf7df" stroke-width="9" stroke-dasharray="8 8"/>
+   <text x="73" y="65" class="area-label">ROOT HOLLOW</text><text x="575" y="65" class="area-label">NESTING GROVE</text><text x="72" y="329" class="area-label">STARTING GLADE</text><text x="565" y="330" class="area-label">CREEK BANK</text>
+   <g data-map-art="rootsDrawing" transform="translate(105 164)"></g><text x="105" y="192" class="object-label">Root arch</text>
+   <g data-map-art="saplingDrawing" transform="translate(242 161)"></g><text x="242" y="192" class="object-label">Sapling</text>
+   <g data-map-art="nestDrawing" transform="translate(622 139)"></g><text x="622" y="175" class="object-label">Nest</text>
+   <g data-map-art="fungiDrawing" transform="translate(770 145)"></g><text x="770" y="175" class="object-label">Mushrooms</text>
+   <g data-map-art="treeDrawing" transform="translate(125 427)"></g><text x="125" y="453" class="object-label">Fruit tree</text>
+   <g data-map-art="fernPatchDrawing" transform="translate(280 423)"></g><text x="280" y="453" class="object-label">Ferns</text>
+   <g data-map-art="companionDrawing" transform="translate(421 421)"></g><text x="421" y="453" class="object-label">Young dino</text>
+   <g data-map-art="logDrawing" transform="translate(175 243)"></g><g data-map-art="springDrawing" transform="translate(440 246)"></g><g data-map-art="stonesDrawing" transform="translate(706 252)"></g>
+   <text x="171" y="286" class="object-label">Log bridge</text><text x="439" y="294" class="object-label">Spring ford</text><text x="708" y="298" class="object-label">Stone crossing</text>
+   <text x="414" y="94" class="route-label">Hidden passage</text><text x="408" y="159" class="route-label">Branch / companion</text>
+   <text x="694" y="406" class="map-key">10 elements · 3 decisions each</text>
+  </svg>
+  <div class="dependency"><span>One connected puzzle</span><div><svg><use href="#leaf"/></svg><b>Fern</b><i>→</i><svg><use href="#cup"/></svg><b>Cup</b><i>→</i><svg><use href="#water"/></svg><b>Water</b><i>→</i><svg><use href="#leaf"/></svg><b>Sapling</b></div></div>
+ </div><aside class="references"><p class="eyebrow">VR design references</p><a href="https://www.fireproofgames.com/games/the-room-vr-a-dark-matter" target="_blank" rel="noopener noreferrer"><span class="reference-number">01</span><h3>The Room VR <span>↗</span></h3><p>Examine objects.<br>Solve environmental puzzles.</p></a><a href="https://iexpectyoutodie.schellgames.com/" target="_blank" rel="noopener noreferrer"><span class="reference-number">02</span><h3>I Expect You To Die <span>↗</span></h3><p>Focused missions.<br>Interactive surroundings.</p></a><p class="reference-note">Borrow their focused spaces—<br>not their tone.</p></aside></div>
+ <div class="room-reasons"><strong>Why a room over an open world?</strong><span>Clear landmarks</span><span>Shorter journeys</span><span>Manageable scope</span></div>
+</section>
+
+<section class="slide tests" id="slide-4" hidden inert aria-labelledby="title-4" aria-roledescription="slide" aria-label="4 of 4">
+ <p class="eyebrow">The next playable milestone</p><h2 id="title-4">Make it feel right. <em>Then grow.</em></h2>
+ <div class="test-grid">
+  <article><span class="test-number">01 / COMFORT</span><svg><use href="#walk"/></svg><h3>Comfortable navigation</h3><p>Compare smooth movement,<br>snap turning, and teleportation.</p><span class="test-tag">Test on Quest</span></article>
+  <article><span class="test-number">02 / INTERACTION</span><svg><use href="#point"/></svg><h3>Clear interaction</h3><p>Check pointer accuracy,<br>reach, and decision readability.</p><span class="test-tag">Test in the headset</span></article>
+  <article><span class="test-number">03 / UNDERSTANDING</span><svg><use href="#puzzle"/></svg><h3>Understandable puzzles</h3><p>Watch players discover clues<br>and try alternative routes.</p><span class="test-tag">Observe new players</span></article>
+  <article><span class="test-number">04 / PERFORMANCE</span><svg><use href="#performance"/></svg><h3>Reliable VR performance</h3><p>Build a small headset slice.<br>Measure frame timing.</p><span class="test-tag">Measure on device</span></article>
+ </div>
+ <div class="next-step"><svg><use href="#friends"/></svg><p>Validate the solo experience<br><strong>before adding cooperative play.</strong></p><a href="../" target="_blank" rel="noopener">Play the browser prototype <span>↗</span></a></div>
+</section>
+
+<footer class="deck-controls"><span class="deck-brand">Dino’s life <span>/ Project presentation</span></span><nav aria-label="Presentation controls"><button id="previous" aria-label="Previous slide">←</button><div id="slideDots" aria-label="Choose a slide"><button data-slide="0" aria-label="Slide 1: Overview" aria-current="step"></button><button data-slide="1" aria-label="Slide 2: Improvements"></button><button data-slide="2" aria-label="Slide 3: Level structure"></button><button data-slide="3" aria-label="Slide 4: Next tests"></button></div><output id="counter" aria-live="polite">01 / 04</output><button id="next" aria-label="Next slide">→</button><button id="fullscreen" aria-label="Enter fullscreen" title="Fullscreen (F)">⛶</button></nav></footer>
+</main>
+</body></html>

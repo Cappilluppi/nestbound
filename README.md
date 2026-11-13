@@ -4,6 +4,12 @@ A standalone, browser-playable 2D forest prototype. Choose a dinosaur species, e
 
 **Play:** https://cappilluppi.github.io/nestbound/
 
+**4-slide presentation:** https://cappilluppi.github.io/nestbound/presentation/
+
+The presentation is a separate 16:9 HTML deck. Use arrow keys, on-screen arrows, or swipe to navigate; F toggles fullscreen when supported. Its historical screenshots come from commits `ba9f082` (visual one-pager), `d59a6b5` (early gameplay, then named Nestbound), and `c16dd7f` (forest prototype). The level map is a schematic, and Quest is the intended platform rather than a feature of the browser build.
+
+Run `node presentation-check.mjs` for the presentation browser checks (requires Chrome on Windows). This checks all four slides, local assets, text bounds, navigation, touch, fullscreen API/fallback, responsive fitting, and the original game startup.
+
 ## Controls
 
 - Drag horizontally to turn; WASD or the on-screen stones to walk. Q/R also turn with the keyboard.
